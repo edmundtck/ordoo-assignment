@@ -1,24 +1,55 @@
-# README
+# README - Ordoo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Installation
 
-Things you may want to cover:
+Fork the repo and clone to local
+```
+git clone url-of-fork-repo
+```
 
-* Ruby version
+Place this two gems in `Gemfile`.
+```
+gem 'faker'
+gem 'database_cleaner'
+```
+Install the gems
+```
+bundle install
+```
+* faker
+  - generate fake data
+* database_cleaner
+  - placed in seed.rb to clean database before seeding the data.
 
-* System dependencies
 
-* Configuration
+Create and migrate database
+```
+rails db:create
+rails db:migrate
+```
 
-* Database creation
+Start rails server
+```
+rails server
+```
 
-* Database initialization
 
-* How to run the test suite
+## Model
+```
+DeliveryOrder
+  order_id: String
+  serving_datetime: DateTime
 
-* Services (job queues, cache servers, search engines, etc.)
+OrderItem
+  delivery_order_id: Integer
+  meal_id: Integer
+  quantity: Integer
+  unit_price: Integer #in cents
 
-* Deployment instructions
+Meal
+  name: String
+  description: String
+```
 
-* ...
+## Erd
+<img src="./app/assets/images/assignment.jpg">
