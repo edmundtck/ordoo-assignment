@@ -1,4 +1,9 @@
 class OrdersController < ApplicationController
+  def welcome
+    
+  end
+
+
   def index
     # getting all the deliver orders
     @orders = DeliveryOrder.all

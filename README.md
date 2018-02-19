@@ -28,6 +28,11 @@ rails db:create
 rails db:migrate
 ```
 
+Generate data
+```
+rails db:seed
+```
+
 Start rails server
 ```
 rails server
