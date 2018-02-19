@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  order_id: 
+  serving_datetime: 
+
+two:
+  order_id: 
+  serving_datetime: 
