@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   def welcome
-    
   end
 
 
@@ -21,14 +20,19 @@ class OrdersController < ApplicationController
       }
       orders.push(new_order)
     end
-    render json: orders
+
+      show_orders = {
+        orders: orders
+      }
+
+    render json: show_orders
   end
 
 
 
   def show
     # find one deliver order and show all order items for it
-    @order = DeliveryOrder.find(params[:id])
+    @order = DeliveryOrder.find_by(order_id: params[:id].upcase)
     start_time = @order.serving_datetime.strftime("%I:%M")
     end_time = (@order.serving_datetime + 1800).strftime("%I:%M%p")
     delivery_time = "#{start_time}-#{end_time}"
@@ -51,7 +55,11 @@ class OrdersController < ApplicationController
       delivery_time: delivery_time,
       order_items: new_items
     }
+    
+    show_order = {
+      order: order
+    }
 
-    render json: order
+    render json: show_order
   end
 end
